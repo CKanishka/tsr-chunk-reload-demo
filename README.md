@@ -75,7 +75,6 @@ Object.keys(sessionStorage)
 Extends `isModuleNotFoundError` in `@tanstack/router-core` to recognize:
 
 - `error.name === "ChunkLoadError"`
-- `error.message.startsWith("Loading chunk")`
 
 Upstream only handles native ESM (Vite) error strings today.
 

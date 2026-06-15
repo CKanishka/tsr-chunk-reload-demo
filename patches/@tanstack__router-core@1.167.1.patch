@@ -9,7 +9,7 @@ index a9db38e7f68cdea1cc8bd5de5713eacfcaa6cc40..9746172fd20828064bd2d6e474964771
 -  if (typeof error?.message !== "string") return false;
 -  return error.message.startsWith("Failed to fetch dynamically imported module") || error.message.startsWith("error loading dynamically imported module") || error.message.startsWith("Importing a module script failed");
 +  if (typeof error?.message !== "string") return error?.name === "ChunkLoadError";
-+  return error.name === "ChunkLoadError" || error.message.startsWith("Loading chunk") || error.message.startsWith("Failed to fetch dynamically imported module") || error.message.startsWith("error loading dynamically imported module") || error.message.startsWith("Importing a module script failed");
++  return error.name === "ChunkLoadError" || error.message.startsWith("Failed to fetch dynamically imported module") || error.message.startsWith("error loading dynamically imported module") || error.message.startsWith("Importing a module script failed");
  }
  function isPromise(value) {
    return Boolean(
@@ -24,7 +24,7 @@ index 361e0e48298328277bb148961b4fcc1a92f3bd95..5ec0d0acd1b3428894293854c574c63a
 -  if (typeof error?.message !== "string") return false;
 -  return error.message.startsWith("Failed to fetch dynamically imported module") || error.message.startsWith("error loading dynamically imported module") || error.message.startsWith("Importing a module script failed");
 +  if (typeof error?.message !== "string") return error?.name === "ChunkLoadError";
-+  return error.name === "ChunkLoadError" || error.message.startsWith("Loading chunk") || error.message.startsWith("Failed to fetch dynamically imported module") || error.message.startsWith("error loading dynamically imported module") || error.message.startsWith("Importing a module script failed");
++  return error.name === "ChunkLoadError" || error.message.startsWith("Failed to fetch dynamically imported module") || error.message.startsWith("error loading dynamically imported module") || error.message.startsWith("Importing a module script failed");
  }
  function isPromise(value) {
    return Boolean(
@@ -32,7 +32,7 @@ diff --git a/src/utils.ts b/src/utils.ts
 index 76f139672669986114bdcd369069f08bdf720217..b56de065e85b6ba4fe44b3876aab95ba4d37a39c 100644
 --- a/src/utils.ts
 +++ b/src/utils.ts
-@@ -486,8 +486,13 @@ export function isModuleNotFoundError(error: any): boolean {
+@@ -486,8 +486,12 @@ export function isModuleNotFoundError(error: any): boolean {
    // chrome: "Failed to fetch dynamically imported module: http://localhost:5173/src/routes/posts.index.tsx?tsr-split"
    // firefox: "error loading dynamically imported module: http://localhost:5173/src/routes/posts.index.tsx?tsr-split"
    // safari: "Importing a module script failed."
@@ -43,7 +43,6 @@ index 76f139672669986114bdcd369069f08bdf720217..b56de065e85b6ba4fe44b3876aab95ba
 +  }
    return (
 +    error.name === 'ChunkLoadError' ||
-+    error.message.startsWith('Loading chunk') ||
      error.message.startsWith('Failed to fetch dynamically imported module') ||
      error.message.startsWith('error loading dynamically imported module') ||
      error.message.startsWith('Importing a module script failed')
