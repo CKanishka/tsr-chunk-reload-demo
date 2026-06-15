@@ -4,6 +4,11 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+patchedDependencies:
+  '@tanstack/router-core@1.167.1':
+    hash: 41dcdfa363f806bf8691f252457275829e4c303787af4a954888b69178a7a568
+    path: patches/@tanstack__router-core@1.167.1.patch
+
 importers:
 
   .:
@@ -2377,7 +2382,7 @@ snapshots:
     dependencies:
       '@tanstack/history': 1.161.5
       '@tanstack/react-store': 0.9.3(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
-      '@tanstack/router-core': 1.167.1
+      '@tanstack/router-core': 1.167.1(patch_hash=41dcdfa363f806bf8691f252457275829e4c303787af4a954888b69178a7a568)
       isbot: 5.1.42
       react: 18.3.1
       react-dom: 18.3.1(react@18.3.1)
@@ -2391,7 +2396,7 @@ snapshots:
       react-dom: 18.3.1(react@18.3.1)
       use-sync-external-store: 1.6.0(react@18.3.1)
 
-  '@tanstack/router-core@1.167.1':
+  '@tanstack/router-core@1.167.1(patch_hash=41dcdfa363f806bf8691f252457275829e4c303787af4a954888b69178a7a568)':
     dependencies:
       '@tanstack/history': 1.161.5
       '@tanstack/store': 0.9.3
@@ -2403,7 +2408,7 @@ snapshots:
 
   '@tanstack/router-generator@1.166.9':
     dependencies:
-      '@tanstack/router-core': 1.167.1
+      '@tanstack/router-core': 1.167.1(patch_hash=41dcdfa363f806bf8691f252457275829e4c303787af4a954888b69178a7a568)
       '@tanstack/router-utils': 1.161.5
       '@tanstack/virtual-file-routes': 1.161.5
       prettier: 3.8.4
@@ -2422,7 +2427,7 @@ snapshots:
       '@babel/template': 7.29.7
       '@babel/traverse': 7.29.7
       '@babel/types': 7.29.7
-      '@tanstack/router-core': 1.167.1
+      '@tanstack/router-core': 1.167.1(patch_hash=41dcdfa363f806bf8691f252457275829e4c303787af4a954888b69178a7a568)
       '@tanstack/router-generator': 1.166.9
       '@tanstack/router-utils': 1.161.5
       '@tanstack/virtual-file-routes': 1.161.5

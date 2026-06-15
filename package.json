@@ -20,5 +20,10 @@
     "@types/react-dom": "^18.3.7",
     "serve": "^14.2.4",
     "typescript": "^5.9.3"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "@tanstack/router-core@1.167.1": "patches/@tanstack__router-core@1.167.1.patch"
+    }
   }
 }
